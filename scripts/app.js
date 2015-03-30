@@ -28,7 +28,8 @@ require(['jquery', 'bootstrap', 'app/calc'], function ($, bootstrap, calc) {
 		var form = $(this),
 			numberA = parseInt(form.find('#number-a').val(), 10),
 			numberB = parseInt(form.find('#number-b').val(), 10),
-			numberResult = calc.plus(numberA, numberB),
+			operator = form.find('#operator').val();
+			numberResult = (operator === 'plus') ? calc.plus(numberA, numberB) : calc.multiply(numberA, numberB),
 			txtResult = form.find('#number-result');
 
 		txtResult.val(numberResult);
